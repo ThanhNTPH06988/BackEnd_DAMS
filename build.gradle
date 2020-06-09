@@ -1,0 +1,53 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'war'
+}
+
+group = 'com.tamdt'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    //spring boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //jpa
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    //oracle
+    runtimeOnly 'com.oracle.ojdbc:ojdbc8'
+
+    //security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.security.oauth:spring-security-oauth2:2.3.5.RELEASE'
+    implementation 'org.springframework.security:spring-security-jwt:1.0.9.RELEASE'
+
+    implementation 'org.modelmapper:modelmapper:2.3.2'
+
+    //gson
+    implementation 'com.google.code.gson:gson:2.7'
+
+    //email
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.2.2.RELEASE'
+
+    implementation 'commons-io:commons-io:2.6'
+
+    implementation 'org.apache.poi:poi-ooxml:3.17'
+    
+    
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
